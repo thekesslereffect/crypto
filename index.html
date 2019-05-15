@@ -5,9 +5,9 @@
 <style>
 
    :root {
-    --primary-color: #302AE6;
-    --secondary-color: #536390;
-    --font-color: #424242;
+    --primary-color: #333;
+    --secondary-color: #4ecca3;
+    --font-color: #ddd;
     --bg-color: #fff;
     --heading-color: #292922;
   }
@@ -102,7 +102,7 @@
 }
 
 .slider {
-  background-color: #ccc;
+  background-color: var(--secondary-color);
   bottom: 0;
   cursor: pointer;
   left: 0;
@@ -129,6 +129,7 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(26px);
+
 }
 
 .slider.round {
