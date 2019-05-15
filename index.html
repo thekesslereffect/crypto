@@ -3,15 +3,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
 <style>
+
+   :root {
+    --primary-color: #302AE6;
+    --secondary-color: #536390;
+    --font-color: #424242;
+    --bg-color: #fff;
+    --heading-color: #292922;
+  }
+
+  [data-theme="dark"] {
+    --primary-color: #393e46;
+    --secondary-color: #4ecca3;
+    --font-color: #eeeeee;
+    --bg-color: #232931;
+    --heading-color: #818cab;
+  }
+
   body {
-    background-color: #232931;
+    background-color: var(--bg-color);
  
    
   }
   h1,h2,h3,h4,h5 {
 
     font-family: helvetica;
-    color: #eeeeee;
+    color: var(--font-color);
     text-align: center;
   }
   p{
@@ -22,29 +39,15 @@
   a:link, a:visited
   {
     
-    color: #eeeeee;   
+    color: var(--font-color);   
     text-decoration: none;
    
   }
 
   a:hover, a:active {
-    background-color: #4ecca3;
+    background-color: var(--secondary-color);
   }
-  .button{
-    font-family: helvetica;
-    padding: 15px 25px;
-    background-color: #393e46;
-    border: none;
-    border-radius: 4px;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: none;
-    width: 150px;
-  }
-  .button:hover{
-    background-color: #4ecca3;
-  }
+  
 
   .grid-container {
     display: grid;
@@ -58,8 +61,8 @@
   }
   .grid-item {
     font-family: helvetica;
-    color:#eeeeee;
-     background-color: #393e46; 
+    color:var(--font-color);
+     background-color: var(--primary-color); 
     border-spacing: :5px;
     border-radius: 4px;
     padding: 15px ;
@@ -69,15 +72,94 @@
   }
 
   .grid-item:hover{
-    background-color: #4ecca3;
+    background-color: var(--secondary-color-color);
   }
- 
+
+  nav {
+    font-family: helvetica;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 20px;
+    color:var(--font-color);
+  }
+
+/*slider switch css */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  
+  
+}
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: var(--secondary-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
 
 </style>
+
+<nav>
+  <div class="theme-switch-wrapper">
+       <label class="theme-switch" for="checkbox">
+    <input type="checkbox" id="checkbox" />
+    <div class="slider round"></div>
+  </label>
+    
+  </div>
+
+</nav>
+
 </head>
+
+
 <body>
+
 <!-- title -->
 <h5>c r y p t o .</h5>
+
 <br>
 
 <div class="grid-container">
@@ -143,4 +225,31 @@
 
 
 </body>
+
 </html>
+
+<script type="text/javascript">
+  const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+  
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+    }
+}
+
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+    else {        document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+    }    
+}
+
+toggleSwitch.addEventListener('change', switchTheme, false);
+  
+</script>
