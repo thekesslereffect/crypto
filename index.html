@@ -235,11 +235,17 @@ input:checked + .slider:before {
 </head>
 
 
-<body>
+<body onload="loadData()">
 
 <!-- title -->
 <h5>c r y p t o .</h5>
 
+<button type="button" onclick="loadData()">Load Spreadsheet Data</button>
+
+<br>
+
+<div id="display">test</div>
+<div id="poo">test poo</div>
 
 <br>
 
@@ -259,8 +265,6 @@ input:checked + .slider:before {
 </div>
 
   
-
-
 
 <br>
 
@@ -1487,11 +1491,11 @@ input:checked + .slider:before {
 
 
 
-
-
 </body>
 
 </html>
+
+<!-- JAVASCRIPTS -->
 
 <script type="text/javascript">
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
@@ -1517,4 +1521,34 @@ function switchTheme(e) {
 
 toggleSwitch.addEventListener('change', switchTheme, false);
   
+
 </script>
+<script type="text/javascript">
+  function loadData() {
+          var url = "https://docs.google.com/spreadsheet/pub?key=p_aHW5nOrj0VO2ZHTRRtqTQ&single=true&gid=0&range=A1&output=csv";
+          xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function () {
+              if (xmlhttp.readyState == 4) {
+                  document.getElementById("display").innerHTML = xmlhttp.responseText;
+                  //alert(xmlhttp.responseText);
+              }
+          };
+          xmlhttp.open("GET", url, true);
+          xmlhttp.send(null);
+      }
+</script>
+<script type="text/javascript">
+  function loadData() {
+          var url = "https://docs.google.com/spreadsheets/d/1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4&single=true&gid=0&range=A4&output=csv";
+          xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function () {
+              if (xmlhttp.readyState == 4) {
+                  document.getElementById("poo").innerHTML = xmlhttp.responseText;
+                  //alert(xmlhttp.responseText);
+              }
+          };
+          xmlhttp.open("GET", url, true);
+          xmlhttp.send(null);
+      }
+</script>
+
