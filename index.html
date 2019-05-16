@@ -5,8 +5,8 @@
 <style>
 
    :root {
-    --primary-color: #ddd;
-    --secondary-color: #4ecca3;
+    --primary-color: #eee;
+    --secondary-color: slategrey;
     --font-color: #393e46;
     --bg-color: #fff;
     --heading-color: #292922;
@@ -15,11 +15,11 @@
 
   [data-theme="dark"] {
     --primary-color: #393e46;
-    --secondary-color: #4ecca3;
+    --secondary-color: slategrey;
     --font-color: #eeeeee;
     --bg-color: #232931;
     --heading-color: #818cab;
-    --slider-color:#4ecca3;
+    --slider-color:slategrey;
   }
 
   body {
@@ -75,7 +75,7 @@
 
   .grid-item:hover{
     background-color: var(--secondary-color);
-   
+    color:var(--bg-color);
   }
 
   nav {
@@ -143,6 +143,50 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.indicators-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top:5px;
+}
+.indicatorwhite{
+  width:20px;
+  height:10px;
+  background-color: lightsteelblue;
+  margin-left:2px;
+  margin-right:2px;
+  border-radius:25px;
+
+}
+.indicatorgreen{
+  width:10px;
+  height:10px;
+  background-color: mediumspringgreen;
+  margin-left:2px;
+  margin-right:2px;
+  border-radius:25px;
+  
+  
+
+}
+.indicatororange{
+  width:10px;
+  height:10px;
+  background-color: orange;
+  margin-left:2px;
+  margin-right:2px;
+  border-radius:25px;
+
+}
+.indicatorred{
+  width:10px;
+  height:10px;
+  background-color: tomato;
+  margin-left:2px;
+  margin-right:2px;
+  border-radius:25px;
+
+}
 
 
 
@@ -195,8 +239,13 @@ input:checked + .slider:before {
     <a href="https://qft.hodloo.com/#/binance:ada-btc" target="_blank">
       
       <div class="grid-item" >
-       ADA 
-       
+       ADA
+       <div class="indicators-wrapper">
+          <div class="indicatorwhite"></div>
+          <div class="indicatorgreen"></div>
+          <div class="indicatororange"></div>
+          <div class="indicatorred"></div>
+       </div>
       </div>
     </a>
   
