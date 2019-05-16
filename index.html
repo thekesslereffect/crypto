@@ -235,7 +235,7 @@ input:checked + .slider:before {
 </head>
 
 
-<body onload="loadData()">
+<body onload="loadData(), loadData2()">
 
 <!-- title -->
 <h5>c r y p t o .</h5>
@@ -1538,7 +1538,7 @@ toggleSwitch.addEventListener('change', switchTheme, false);
       }
 </script>
 <script type="text/javascript">
-  function loadData() {
+  function loadData2() {
           var url = "https://docs.google.com/spreadsheets/d/1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4&single=true&gid=0&range=A4&output=csv";
           xmlhttp = new XMLHttpRequest();
           xmlhttp.onreadystatechange = function () {
