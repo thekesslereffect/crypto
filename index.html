@@ -1970,7 +1970,7 @@ toggleSwitch.addEventListener('change', switchTheme, false);
   function execute() {
     return gapi.client.sheets.spreadsheets.values.get({
       "spreadsheetId": "1pjxIJMBI4Jr9ObRz2SJRWXJOiaj25G2jwI3Jt_-esyE",
-      "range": "A1"
+      "range": "A4"
     })
         .then(function(response) {
                 // Handle the results here (response.result has the parsed body).
