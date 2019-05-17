@@ -1990,11 +1990,10 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 
       var request = gapi.client.sheets.spreadsheets.values.get(params);
       request.then(function(response) {
-        // TODO: Change code below to process the `response` object:
-        console.log(response.result);
-        document.getElementById("apiresult").innerHTML = response.result.values ? result.values.length : 0;
-      }, function(reason) {
-        console.error('error: ' + reason.result.error.message);
+      
+        var result = response.result;
+        var numRows = result.values ? result.values.length : 0;
+        console.log(`${numRows}`);
       });
     }
 
