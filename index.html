@@ -1970,30 +1970,15 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 
 <script>
     function makeApiCall() {
-      var params = {
-        // The ID of the spreadsheet to retrieve data from.
-        spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',  // TODO: Update placeholder value.
+        gapi.client.sheets.spreadsheets.values.get({
+          spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
+          range: 'A4'
+        }).then((response) => {
 
-        // The A1 notation of the values to retrieve.
-        range: 'A4',  // TODO: Update placeholder value.
-
-        // How values should be represented in the output.
-        // The default render option is ValueRenderOption.FORMATTED_VALUE.
-        //valueRenderOption: 'FORMATTED_VALUE',  // TODO: Update placeholder value.
-
-        // How dates, times, and durations should be represented in the output.
-        // This is ignored if value_render_option is
-        // FORMATTED_VALUE.
-        // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
-        //dateTimeRenderOption: 'SERIAL_NUMBER',  // TODO: Update placeholder value.
-      };
-
-      var request = gapi.client.sheets.spreadsheets.values.get(params);
-      request.then(function(response) {
       
-        var result = response.result;
-        var numRows = result.values ? result.values.length : 0;
-        console.log(`${numRows}`);
+        var result = response.result.range;
+       
+        console.log(result);
       });
     }
 
