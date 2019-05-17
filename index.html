@@ -11,6 +11,8 @@
     --bg-color: #fff;
     --heading-color: #292922;
     --slider-color: #ddd;
+    --filter-color:invert(.15);
+   
   }
 
   [data-theme="dark"] {
@@ -20,6 +22,8 @@
     --bg-color: #232931;
     --heading-color: #818cab;
     --slider-color:slategrey;
+    --filter-color:invert(.9);
+   
   }
 
   body {
@@ -46,7 +50,14 @@
    
   }
 
-  
+  img{
+  height:32px;
+  width:32px;
+  margin-bottom:5px;
+  filter: var(--filter-color);
+  }
+
+ 
   
 
   .grid-container {
@@ -75,7 +86,8 @@
 
   .grid-item:hover{
     background-color: var(--secondary-color);
-    color:var(--bg-color);
+  
+
   }
 
   nav {
@@ -103,6 +115,8 @@
 .theme-switch input {
   display:none;
 }
+
+
 
 .slider {
   background-color: var(--slider-color);
@@ -240,6 +254,7 @@ input:checked + .slider:before {
 <!-- title -->
 <h5>c r y p t o .</h5>
 
+
 <button type="button" onclick="loadData()" onclick="loadData2()" >Load Spreadsheet Data</button>
 
 <br>
@@ -278,8 +293,11 @@ input:checked + .slider:before {
 
 
     <a href="https://qft.hodloo.com/#/binance:ada-btc" target="_blank">
-      <div class="grid-item" >   
-       ADA
+      <div class="grid-item" > 
+        <div>  
+          <img src="icons/ada.png">
+        </div>
+        ADA
        <div class="indicators-wrapper">
           <div class="indicatorwhite"></div>
           <div class="indicatorgreen"></div>
@@ -291,6 +309,9 @@ input:checked + .slider:before {
   
   <a href="https://qft.hodloo.com/#/binance:adx-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/adx.png">
+      </div>
       ADX
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -300,6 +321,9 @@ input:checked + .slider:before {
   
   <a href="https://qft.hodloo.com/#/binance:ae-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/ae.png">
+      </div>
       AE
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -309,6 +333,9 @@ input:checked + .slider:before {
   
   <a href="https://qft.hodloo.com/#/binance:agi-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/agi.png">
+      </div>
       AGI
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -318,6 +345,9 @@ input:checked + .slider:before {
   
   <a href="https://qft.hodloo.com/#/binance:aion-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/aion.png">
+      </div>
       AION
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -327,6 +357,9 @@ input:checked + .slider:before {
   
   <a href="https://qft.hodloo.com/#/binance:amb-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/amb.png">
+      </div>
       AMB
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -336,6 +369,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:appc-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/appc.png">
+      </div>
       APPC
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -345,6 +381,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:ardr-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/ardr.png">
+      </div>
       ARDR
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -355,6 +394,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:ark-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/ark.png">
+      </div>
       ARK
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -364,6 +406,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:arn-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/arn.png">
+      </div>
       ARN
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -373,6 +418,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:ast-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/ast.png">
+      </div>
       AST
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -382,6 +430,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:atom-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/atom.png">
+      </div>
       ATOM
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -391,6 +442,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:bat-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/bat.png">
+      </div>
       BAT
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -400,6 +454,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:BCD-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/bcd.png">
+      </div>
       BCD
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -409,6 +466,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:bchabc-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/bchabc.png">
+      </div>
       BCHABC
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -418,6 +478,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:BCPT-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/bcpt.png">
+      </div>
       BCPT
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -427,6 +490,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:BLZ-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/blz.png">
+      </div>
       BLZ
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -436,6 +502,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:BNB-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/bnb.png">
+      </div>
       BNB
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -445,6 +514,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:BNT-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/bnt.png">
+      </div>
       BNT
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -454,6 +526,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:BQX-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/bqx.png">
+      </div>
       BQX
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -463,6 +538,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:BRD-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/brd.png">
+      </div>
       BRD
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -472,6 +550,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:BTG-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/btg.png">
+      </div>
       BTG
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -481,6 +562,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:BTS-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/bts.png">
+      </div>
       BTS
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -490,6 +574,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:CDT-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/cdt.png">
+      </div>
       CDT
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -499,6 +586,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:CELR-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/celr.png">
+      </div>
       CELR
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -508,6 +598,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:CMT-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/cmt.png">
+      </div>
       CMT
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -517,6 +610,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:CND-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/cnd.png">
+      </div>
       CND
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -526,6 +622,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:CVC-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/cvc.png">
+      </div>
       CVC
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -535,6 +634,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:DASH-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/dash.png">
+      </div>
       DASH
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -544,6 +646,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:DATA-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/data.png">
+      </div>
       DATA
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -553,6 +658,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:DCR-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/dcr.png">
+      </div>
       DCR
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -562,6 +670,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:DGD-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/dgd.png">
+      </div>
       DGD
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -571,6 +682,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:DLT-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/dlt.png">
+      </div>
       DLT
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -580,6 +694,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:DNT-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/dnt.png">
+      </div>
       DNT
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -589,6 +706,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:DOCK-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/dock.png">
+      </div>
       DOCK
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -598,6 +718,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:EDO-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/edo.png">
+      </div>
       EDO
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -607,6 +730,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:ELF-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/elf.png">
+      </div>
       ELF
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -616,6 +742,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:ENG-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/eng.png">
+      </div>
       ENG
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -625,6 +754,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:ENJ-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/enj.png">
+      </div>
       ENJ
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -634,6 +766,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:EOS-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/eos.png">
+      </div>
       EOS
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -643,6 +778,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:ETC-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/etc.png">
+      </div>
       ETC
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -652,6 +790,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:ETH-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/eth.png">
+      </div>
       ETH
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -661,6 +802,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:EVX-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/evx.png">
+      </div>
       EVX
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -670,6 +814,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:FET-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/fet.png">
+      </div>
       FET
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -679,6 +826,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:FUEL-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/fuel.png">
+      </div>
       FUEL
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -688,6 +838,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:GAS-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/gas.png">
+      </div>
       GAS
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -697,6 +850,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:GNT-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/gnt.png">
+      </div>
       GNT
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -706,6 +862,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:GO-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/go.png">
+      </div>
       GO
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -715,6 +874,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:GRS-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/grs.png">
+      </div>
       GRS
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -724,6 +886,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:GTO-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/gto.png">
+      </div>
       GTO
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -733,6 +898,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:GVT-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/gvt.png">
+      </div>
       GVT
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -742,6 +910,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:GXS-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/gxs.png">
+      </div>
       GXS
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -751,6 +922,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:HC-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/hc.png">
+      </div>
       HC
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -760,6 +934,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:ICX-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/icx.png">
+      </div>
       ICX
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -769,6 +946,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:INS-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/ins.png">
+      </div>
       INS
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -778,6 +958,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:IOST-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/iost.png">
+      </div>
       IOST
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -787,6 +970,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:IOTA-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/iota.png">
+      </div>
       IOTA
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -796,6 +982,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:IOTX-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/iotx.png">
+      </div>
       IOTX
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -805,6 +994,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:KMD-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/kmd.png">
+      </div>
       KMD
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -814,6 +1006,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:KNC-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/knc.png">
+      </div>
       KNC
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -823,6 +1018,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:LEND-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/lend.png">
+      </div>
       LEND
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -832,6 +1030,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:LINK-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/link.png">
+      </div>
       LINK
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -841,6 +1042,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:LOOM-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/loom.png">
+      </div>
       LOOM
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -850,6 +1054,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:LRC-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/lrc.png">
+      </div>
       LRC
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -859,6 +1066,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:LSK-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/lsk.png">
+      </div>
       LSK
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -868,6 +1078,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:LTC-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/ltc.png">
+      </div>
       LTC
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -877,6 +1090,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:LUN-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/lun.png">
+      </div>
       LUN
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -886,6 +1102,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:MANA-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/mana.png">
+      </div>
       MANA
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -895,6 +1114,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:MATIC-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/matic.png">
+      </div>
       MATIC
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -904,6 +1126,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:MCO-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/mco.png">
+      </div>
       MCO
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -913,6 +1138,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:MDA-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/mda.png">
+      </div>
       MDA
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -922,6 +1150,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:MITH-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/mith.png">
+      </div>
       MITH
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -931,6 +1162,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:MTH-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/mth.png">
+      </div>
       MTH
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -940,6 +1174,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:MTL-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/mtl.png">
+      </div>
       MTL
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -949,6 +1186,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:NANO-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/nano.png">
+      </div>
       NANO
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -958,6 +1198,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:NAS-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/nas.png">
+      </div>
       NAS
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -967,6 +1210,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:NAV-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/nav.png">
+      </div>
       NAV
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -976,6 +1222,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:NEBL-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/nebl.png">
+      </div>
       NEBL
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -985,6 +1234,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:NEO-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/neo.png">
+      </div>
       NEO
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -994,6 +1246,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:NULS-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/nuls.png">
+      </div>
       NULS
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1003,6 +1258,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:NXS-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/nxs.png">
+      </div>
       NXS
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1012,6 +1270,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:OAX-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/oax.png">
+      </div>
       OAX
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1021,6 +1282,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:OMG-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/omg.png">
+      </div>
       OMG
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1030,6 +1294,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:ONG-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/ong.png">
+      </div>
       ONG
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1039,6 +1306,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:ONT-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/ont.png">
+      </div>
       ONT
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1048,6 +1318,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:OST-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/ost.png">
+      </div>
       OST
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1057,6 +1330,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:PHX-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/phx.png">
+      </div>
       PHX
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1066,6 +1342,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:PIVX-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/pivx.png">
+      </div>
       PIVX
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1075,6 +1354,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:POA-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/poa.png">
+      </div>
       POA
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1084,6 +1366,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:POLY-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/poly.png">
+      </div>
       POLY
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1093,6 +1378,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:POWR-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/powr.png">
+      </div>
       POWR
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1102,6 +1390,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:PPT-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/ppt.png">
+      </div>
       PPT
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1111,6 +1402,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:QKC-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/qkc.png">
+      </div>
       QKC
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1120,6 +1414,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:QLC-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/qlc.png">
+      </div>
       QLC
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1129,6 +1426,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:QSP-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/qsp.png">
+      </div>
       QSP
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1138,6 +1438,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:QTUM-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/qtum.png">
+      </div>
       QTUM
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1147,6 +1450,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:RCN-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/rcn.png">
+      </div>
       RCN
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1156,6 +1462,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:RDN-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/rdn.png">
+      </div>
       RDN
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1165,6 +1474,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:REN-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/ren.png">
+      </div>
       REN
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1174,6 +1486,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:REP-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/rep.png">
+      </div>
       REP
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1183,6 +1498,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:REQ-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/req.png">
+      </div>
       REQ
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1192,6 +1510,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:RLC-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/rlc.png">
+      </div>
       RLC
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1201,6 +1522,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:RVN-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/rvn.png">
+      </div>
       RVN
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1210,6 +1534,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:SKY-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/sky.png">
+      </div>
       SKY
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1219,6 +1546,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:SNGLS-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/sngls.png">
+      </div>
       SNGLS
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1228,6 +1558,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:SNM-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/snm.png">
+      </div>
       SNM
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1237,6 +1570,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:SNT-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/snt.png">
+      </div>
       SNT
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1246,6 +1582,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:STEEM-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/steem.png">
+      </div>
       STEEM
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1255,6 +1594,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:STORJ-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/storj.png">
+      </div>
       STORJ
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1264,6 +1606,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:STRAT-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/strat.png">
+      </div>
       STRAT
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1273,6 +1618,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:SYS-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/sys.png">
+      </div>
       SYS
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1282,6 +1630,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:THETA-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/theta.png">
+      </div>
       THETA
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1291,6 +1642,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:TNT-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/tnt.png">
+      </div>
       TNT
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1300,6 +1654,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:TRX-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/trx.png">
+      </div>
       TRX
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1309,6 +1666,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:VET-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/vet.png">
+      </div>
       VET
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1318,6 +1678,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:VIA-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/via.png">
+      </div>
       VIA
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1327,6 +1690,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:VIB-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/vib.png">
+      </div>
       VIB
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1336,6 +1702,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:VIBE-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/vibe.png">
+      </div>
       VIBE
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1345,6 +1714,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:WABI-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/wabi.png">
+      </div>
       WABI
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1354,6 +1726,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:WAN-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/wan.png">
+      </div>
       WAN
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1363,6 +1738,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:WAVES-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/waves.png">
+      </div>
       WAVES
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1372,6 +1750,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:WPR-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/wpr.png">
+      </div>
       WPR
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1381,6 +1762,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:WTC-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/wtc.png">
+      </div>
       WTC
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1390,6 +1774,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:XEM-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/xem.png">
+      </div>
       XEM
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1399,6 +1786,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:XLM-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/xlm.png">
+      </div>
       XLM
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1408,6 +1798,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:XMR-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/xmr.png">
+      </div>
       XMR
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1417,6 +1810,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:XRP-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/xrp.png">
+      </div>
       XRP
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1426,6 +1822,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:XVG-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/xvg.png">
+      </div>
       XVG
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1435,6 +1834,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:XZC-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/xzc.png">
+      </div>
       XZC
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1444,6 +1846,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:YOYO-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/yoyo.png">
+      </div>
       YOYO
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1453,6 +1858,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:ZEC-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/zec.png">
+      </div>
       ZEC
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1462,6 +1870,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:ZEN-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/zen.png">
+      </div>
       ZEN
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1471,6 +1882,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:ZIL-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/zil.png">
+      </div>
       ZIL
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
@@ -1480,6 +1894,9 @@ input:checked + .slider:before {
 
   <a href="https://qft.hodloo.com/#/binance:ZRX-btc" target="_blank">
     <div class="grid-item" >
+      <div>  
+          <img src="icons/zrx.png">
+      </div>
       ZRX
       <div class="indicators-wrapper">
           <div class="indicatorneutral"></div>
