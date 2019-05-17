@@ -257,7 +257,7 @@ input:checked + .slider:before {
 
 <button type="button" onclick="loadData()" onclick="execute()" >Load Spreadsheet Data</button>
 
-<!--<button onclick="authenticate().then(loadClient)">authorize and load</button>-->
+<button onclick="loadClient()">load</button>
 <button onclick="execute()">execute</button>
 
 <br>
@@ -1977,7 +1977,7 @@ toggleSwitch.addEventListener('change', switchTheme, false);
    * See instructions for running APIs Explorer code samples locally:
    * https://developers.google.com/explorer-help/guides/code_samples#javascript
    */
-/*
+
   function authenticate() {
     return gapi.auth2.getAuthInstance()
         .signIn({scope: "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/spreadsheets.readonly"})
@@ -1989,7 +1989,7 @@ toggleSwitch.addEventListener('change', switchTheme, false);
     return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/sheets/v4/rest")
         .then(function() { console.log("GAPI client loaded for API"); },
               function(err) { console.error("Error loading GAPI client for API", err); });
-  } */
+  } 
   // Make sure the client is loaded and sign-in is complete before calling this method.
   function execute() {
     return gapi.client.sheets.spreadsheets.values.get({
