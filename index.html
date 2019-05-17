@@ -249,13 +249,13 @@ input:checked + .slider:before {
 </head>
 
 
-<body onload="loadData()" onload="loadData2()">
+<body onload="startup()">
 
 <!-- title -->
 <h5>c r y p t o .</h5>
 
 
-<button type="button" onclick="loadData()" onclick="loadData2()" >Load Spreadsheet Data</button>
+<button type="button" onclick="startup()" >Load Spreadsheet Data</button>
 
 
 <button onclick="makeApiCall()">apicall</button>
@@ -1919,6 +1919,13 @@ input:checked + .slider:before {
 
 
 <!-- JAVASCRIPTS -->
+<script type="text/javascript">
+  function startup(){
+    loadData();
+    loadData2();
+    makeApiCall();
+  }
+  </script>
 
 <script type="text/javascript">
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
@@ -1946,6 +1953,7 @@ toggleSwitch.addEventListener('change', switchTheme, false);
   
 
 </script>
+
 
 
 <script type="text/javascript">
