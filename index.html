@@ -254,7 +254,7 @@ input:checked + .slider:before {
 <!-- title -->
 <h5>c r y p t o .</h5>
 
-<!--
+
 <button type="button" onclick="loadData()" onclick="loadData2()" >Load Spreadsheet Data</button>
 
 <br>
@@ -264,7 +264,7 @@ input:checked + .slider:before {
 <div id="result">result test</div>
 <pre id="content" style="white-space: pre-wrap;"></pre>
 
--->
+
 
 <br>
 
@@ -1976,6 +1976,7 @@ toggleSwitch.addEventListener('change', switchTheme, false);
   function loadData2() {
   gapi.client.sheets.spreadsheets.values.get({
     spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
+    key: 'AIzaSyDYM8lAPcM_14uH1nQwnIyQvqeGDBt-3fg',
     range: 'Sheet1!A4',
   }).then(function(response){
     var value = response.result;
