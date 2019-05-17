@@ -255,7 +255,7 @@ input:checked + .slider:before {
 <h5>c r y p t o .</h5>
 
 
-<button type="button" onclick="loadData()" onclick="loadData2()" >Load Spreadsheet Data</button>
+<button type="button" onclick="loadData()" onclick="execute()" >Load Spreadsheet Data</button>
 
 <br>
 
@@ -1966,25 +1966,7 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 <!-- NEW JAVASCRIPT -->
 <script src="https://apis.google.com/js/api.js"></script>
 <script>
-  /**
-   * Sample JavaScript code for sheets.spreadsheets.values.get
-   * See instructions for running APIs Explorer code samples locally:
-   * https://developers.google.com/explorer-help/guides/code_samples#javascript
-   */
-
-  function authenticate() {
-    return gapi.auth2.getAuthInstance()
-        .signIn({scope: "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/spreadsheets.readonly"})
-        .then(function() { console.log("Sign-in successful"); },
-              function(err) { console.error("Error signing in", err); });
-  }
-  function loadClient() {
-    gapi.client.setApiKey("AIzaSyDYM8lAPcM_14uH1nQwnIyQvqeGDBt-3fg");
-    return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/sheets/v4/rest")
-        .then(function() { console.log("GAPI client loaded for API"); },
-              function(err) { console.error("Error loading GAPI client for API", err); });
-  }
-  // Make sure the client is loaded and sign-in is complete before calling this method.
+ 
   function execute() {
     return gapi.client.sheets.spreadsheets.values.get({
       "spreadsheetId": "1pjxIJMBI4Jr9ObRz2SJRWXJOiaj25G2jwI3Jt_-esyE",
@@ -1997,12 +1979,10 @@ toggleSwitch.addEventListener('change', switchTheme, false);
               },
               function(err) { console.error("Execute error", err); });
   }
-  gapi.load("client:auth2", function() {
-    gapi.auth2.init({client_id: "crypto@ab-scanner.iam.gserviceacount.com"});
-  });
+  
 </script>
-<button onclick="authenticate().then(loadClient)">authorize and load</button>
-<button onclick="execute()">execute</button>
+
+
 
 
 
