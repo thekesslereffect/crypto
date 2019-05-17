@@ -255,10 +255,11 @@ input:checked + .slider:before {
 <h5>c r y p t o .</h5>
 
 
-<button type="button" onclick="startup()" >Load Spreadsheet Data</button>
-
 
 <button onclick="makeApiCall()">apicall</button>
+
+<button id="signin-button" onclick="handleSignInClick()">Sign in</button>
+<button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
 
 <br>
 
@@ -1919,7 +1920,6 @@ input:checked + .slider:before {
 <!-- JAVASCRIPTS -->
 <script type="text/javascript">
   function startup(){
-    loadData();
     makeApiCall();
   }
   </script>
@@ -1953,27 +1953,14 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 
 
 
-<script type="text/javascript">
-  function loadData() {
-          var url = "https://docs.google.com/spreadsheet/pub?key=p_aHW5nOrj0VO2ZHTRRtqTQ&single=true&gid=0&range=A1&output=csv";
-          xmlhttp = new XMLHttpRequest();
-          xmlhttp.onreadystatechange = function () {
-              if (xmlhttp.readyState == 4) {
-                  document.getElementById("display").innerHTML = xmlhttp.responseText;
-                  //alert(xmlhttp.responseText);
-              }
-          };
-          xmlhttp.open("GET", url, true);
-          xmlhttp.send(null);
-      }
-</script>
 
 
 
 
 
 
-<!-- NEW JAVASCRIPT -->
+
+<!-- Get Sheets data -->
 
 <script>
     function makeApiCall() {
@@ -2042,10 +2029,8 @@ toggleSwitch.addEventListener('change', switchTheme, false);
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
 </script>
-    <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
-    <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
 
-
+    
 
 </body>
 
