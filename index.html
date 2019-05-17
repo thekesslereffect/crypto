@@ -247,6 +247,9 @@ input:checked + .slider:before {
 <div id="display">test</div>
 
 <div id="result">result test</div>
+<pre id="content" style="white-space: pre-wrap;"></pre>
+
+
 
 <br>
 
@@ -1539,16 +1542,29 @@ toggleSwitch.addEventListener('change', switchTheme, false);
       }
 </script>
 
+
+
+
+
 <script type="text/javascript">
+
+
+  function appendPre(message) {
+        var pre = document.getElementById('content');
+        var textContent = document.createTextNode(message + '\n');
+        pre.appendChild(textContent);
+      }
+
+
   function loadData2() {
   gapi.client.sheets.spreadsheets.values.get({
     spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
-    range: 'A4',
-  }).then((response) => {
-    var result = response.result;
-    var values = result.values;
+    range: 'Sheet1!A4',
+  }).then(function(response){
+    var value = response.result;
+   
+    appendPre(value);
     
-    document.getElementById("result").innerHTML = values;
   });
 }
 </script>
