@@ -235,17 +235,18 @@ input:checked + .slider:before {
 </head>
 
 
-<body onload="loadData(), loadData2()">
+<body onload="loadData()" onload="loadData2()">
 
 <!-- title -->
 <h5>c r y p t o .</h5>
 
-<button type="button" onclick="loadData()" onclick="loadData2()">Load Spreadsheet Data</button>
+<button type="button" onclick="loadData()" onclick="loadData2()" >Load Spreadsheet Data</button>
 
 <br>
 
 <div id="display">test</div>
-<div id="poo">test poo</div>
+
+<div id="result">result test</div>
 
 <br>
 
@@ -1523,6 +1524,8 @@ toggleSwitch.addEventListener('change', switchTheme, false);
   
 
 </script>
+
+
 <script type="text/javascript">
   function loadData() {
           var url = "https://docs.google.com/spreadsheet/pub?key=p_aHW5nOrj0VO2ZHTRRtqTQ&single=true&gid=0&range=A1&output=csv";
@@ -1537,18 +1540,19 @@ toggleSwitch.addEventListener('change', switchTheme, false);
           xmlhttp.send(null);
       }
 </script>
+
+
+
 <script type="text/javascript">
   function loadData2() {
-          var url = "https://docs.google.com/spreadsheets/ccc?key=1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4&single=true&gid=0&range=A4&output=csv";
-          xmlhttp = new XMLHttpRequest();
-          xmlhttp.onreadystatechange = function () {
-              if (xmlhttp.readyState == 4) {
-                  document.getElementById("poo").innerHTML = xmlhttp.responseText;
-                  //alert(xmlhttp.responseText);
-              }
-          };
-          xmlhttp.open("GET", url, true);
-          xmlhttp.send(null);
-      }
+  gapi.client.sheets.spreadsheets.values.get({
+    spreadsheetId: 1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4,
+    range: A4
+  }).then((response) => {
+    var result = response.result;
+    var values = result.values;
+    
+    document.getElementById("result").innerHTML = values;
+  });
+}
 </script>
-
