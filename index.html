@@ -1964,23 +1964,7 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 
 
 <!-- NEW JAVASCRIPT -->
-<script src="https://apis.google.com/js/api.js"></script>
-<script>
- 
-  function execute() {
-    return gapi.client.sheets.spreadsheets.values.get({
-      "spreadsheetId": "1pjxIJMBI4Jr9ObRz2SJRWXJOiaj25G2jwI3Jt_-esyE",
-      "range": "A1"
-    })
-        .then(function(response) {
-                // Handle the results here (response.result has the parsed body).
-                console.log("Response", response);
 
-              },
-              function(err) { console.error("Execute error", err); });
-  }
-  
-</script>
 
 
 <script src="https://apis.google.com/js/api.js"></script>
