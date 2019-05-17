@@ -249,7 +249,7 @@ input:checked + .slider:before {
 </head>
 
 
-<body onload="loadData()" onload="loadData2()">
+<body onload="loadData()" onload="loadClient()">
 
 <!-- title -->
 <h5>c r y p t o .</h5>
@@ -257,8 +257,8 @@ input:checked + .slider:before {
 
 <button type="button" onclick="loadData()" onclick="execute()" >Load Spreadsheet Data</button>
 
-<button onclick="loadClient()">load</button>
-<button onclick="execute()">execute</button>
+
+
 
 <br>
 
@@ -1999,6 +1999,7 @@ toggleSwitch.addEventListener('change', switchTheme, false);
         .then(function(response) {
                 // Handle the results here (response.result has the parsed body).
                 console.log("Response", response);
+                document.getElementById("Response").innerHTML = response;
               },
               function(err) { console.error("Execute error", err); });
   }
