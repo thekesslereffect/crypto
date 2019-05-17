@@ -1983,9 +1983,15 @@ toggleSwitch.addEventListener('change', switchTheme, false);
         }).then((response) => {
 
       
-        var result = response.result;
+        var result = response.result.values;
+        
+
        
         console.log(result);
+
+
+
+
         document.getElementById("apiresult").innerHTML = result;
       });
     }
