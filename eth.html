@@ -1,0 +1,2068 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<style>
+
+   :root {
+    --primary-color: #eee;
+    --secondary-color: slategrey;
+    --font-color: #393e46;
+    --bg-color: #fff;
+    --heading-color: #292922;
+    --slider-color: #ddd;
+    --filter-color:invert(.15);
+   
+  }
+
+  [data-theme="dark"] {
+    --primary-color: #393e46;
+    --secondary-color: slategrey;
+    --font-color: #eeeeee;
+    --bg-color: #232931;
+    --heading-color: #818cab;
+    --slider-color:slategrey;
+    --filter-color:invert(.9);
+   
+  }
+
+  body {
+    background-color: var(--bg-color);
+ 
+   
+  }
+  h1,h2,h3,h4,h5 {
+
+    font-family: helvetica;
+    color: var(--font-color);
+    text-align: center;
+  }
+  p{
+    border: 2px #eeeeee;
+    padding: 5px;
+  }
+
+  a:link, a:visited
+  {
+    
+    color: var(--font-color);   
+    text-decoration: none;
+   
+  }
+
+  img{
+  height:32px;
+  width:32px;
+  margin-bottom:5px;
+  filter: var(--filter-color);
+  }
+
+  button{
+    height:32px;
+    width:32px;
+    background-color:transparent;
+    border: none; /* Remove borders */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin:0;
+    padding:0;
+
+    -webkit-transition: -webkit-transform .3s ease-out;
+          transition:         transform .3s ease-out;
+
+   
+
+  }
+  button:hover{
+    -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+  }
+
+ 
+  
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(100px, 1fr) );
+    grid-gap:10px;
+    padding: 0px;
+    align-content: space-evenly;
+    text-align:center;
+
+   
+    
+    
+  }
+  .grid-item {
+    font-family: helvetica;
+    color:var(--font-color);
+     background-color: var(--primary-color); 
+    border-spacing: :5px;
+    border-radius: 4px;
+    padding: 10px ;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .grid-item:hover{
+    background-color: var(--secondary-color);
+  
+
+  }
+
+  nav {
+    font-family: helvetica;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 20px;
+    color:var(--font-color);
+  }
+
+/*slider switch css */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  
+  
+}
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+
+
+.slider {
+  background-color: var(--slider-color);
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: var(--slider-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.indicators-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top:5px;
+}
+.indicatorneutral{
+  width:20px;
+  height:10px;
+  background-color: lightsteelblue;
+  margin-left:2px;
+  margin-right:2px;
+  border-radius:25px;
+}
+.indicatorwhite{
+  width:20px;
+  height:10px;
+  background-color: lightsteelblue;
+  margin-left:2px;
+  margin-right:2px;
+  border-radius:25px;
+
+}
+.indicatorgreen{
+  width:10px;
+  height:10px;
+  background-color: mediumspringgreen;
+  margin-left:2px;
+  margin-right:2px;
+  border-radius:25px;
+  
+  
+
+}
+.indicatororange{
+  width:10px;
+  height:10px;
+  background-color: orange;
+  margin-left:2px;
+  margin-right:2px;
+  border-radius:25px;
+
+}
+.indicatorred{
+  width:10px;
+  height:10px;
+  background-color: tomato;
+  margin-left:2px;
+  margin-right:2px;
+  border-radius:25px;
+
+}
+
+.favorite-wrapper{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom:5px;
+  cursor: pointer;
+}
+.favorite{
+  width:10px;
+  height:10px;
+  background-color: lightsteelblue;
+  margin-left:2px;
+  margin-right:2px;
+  border-radius:25px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+</style>
+
+<nav>
+  <div class="theme-switch-wrapper">
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+      </label>
+    
+  </div>
+
+</nav>
+
+</head>
+
+
+<body onload="startup()">
+
+<!-- title -->
+<a href="https://thekesslereffect.github.io/crypto" target="_blank">
+  <h5>c r y p t o .</h5>
+</a>
+
+
+
+   <h5> <button onclick="makeApiCall()"><img src="icons/refresh.png"></button></h5>
+
+<!--
+<button id="signin-button" onclick="handleSignInClick()">Sign in</button>
+<button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
+-->
+
+
+
+
+
+
+
+
+
+
+<div class="grid-container">
+  <a href="https://docs.google.com/spreadsheets/d/1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4" target="_blank">
+    <div class="grid-item">
+      Poobah AB Scanner (BTC only for now)
+    </div>
+  </a>
+
+  <a href="https://3commas.io/smart_trades/new" target="_blank">
+    <div class="grid-item">
+      3Commas
+    </div>
+  </a>
+
+</div>
+
+  
+
+<br>
+
+
+<!-- links -->
+  <div class="grid-container">
+
+
+    <a href="https://qft.hodloo.com/#/binance:ada-eth" target="_blank">
+      <div class="grid-item" > 
+        <div>  
+          <img src="icons/ada.png">
+        </div>
+        ADA
+       <div class="indicators-wrapper">
+          <div class="indicatorwhite"></div>
+          <div class="indicatorgreen"></div>
+          <div class="indicatororange"></div>
+          <div class="indicatorred"></div>
+       </div>
+      </div>
+    </a>
+  
+  <a href="https://qft.hodloo.com/#/binance:adx-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/adx_.png">
+      </div>
+      ADX
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+  
+  <a href="https://qft.hodloo.com/#/binance:ae-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/ae.png">
+      </div>
+      AE
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+  
+  <a href="https://qft.hodloo.com/#/binance:agi-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/agi.png">
+      </div>
+      AGI
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+  
+  <a href="https://qft.hodloo.com/#/binance:aion-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/aion.png">
+      </div>
+      AION
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+  
+  <a href="https://qft.hodloo.com/#/binance:amb-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/amb.png">
+      </div>
+      AMB
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:appc-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/appc.png">
+      </div>
+      APPC
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:ardr-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/ardr.png">
+      </div>
+      ARDR
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+
+  <a href="https://qft.hodloo.com/#/binance:ark-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/ark.png">
+      </div>
+      ARK
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:arn-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/arn.png">
+      </div>
+      ARN
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:ast-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/ast.png">
+      </div>
+      AST
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:atom-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/atom.png">
+      </div>
+      ATOM
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:bat-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/bat.png">
+      </div>
+      BAT
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:BCD-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/bcd.png">
+      </div>
+      BCD
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:bchabc-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/bchabc.png">
+      </div>
+      BCHABC
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:BCPT-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/bcpt.png">
+      </div>
+      BCPT
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:BLZ-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/blz.png">
+      </div>
+      BLZ
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:BNB-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/bnb.png">
+      </div>
+      BNB
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:BNT-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/bnt.png">
+      </div>
+      BNT
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:BQX-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/bqx.png">
+      </div>
+      BQX
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:BRD-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/brd.png">
+      </div>
+      BRD
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:BTG-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/btg.png">
+      </div>
+      BTG
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:BTS-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/bts.png">
+      </div>
+      BTS
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:CDT-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/cdt.png">
+      </div>
+      CDT
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:CELR-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/celr.png">
+      </div>
+      CELR
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:CMT-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/cmt.png">
+      </div>
+      CMT
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:CND-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/cnd.png">
+      </div>
+      CND
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:CVC-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/cvc.png">
+      </div>
+      CVC
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:DASH-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/dash.png">
+      </div>
+      DASH
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:DATA-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/data.png">
+      </div>
+      DATA
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:DCR-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/dcr.png">
+      </div>
+      DCR
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:DGD-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/dgd.png">
+      </div>
+      DGD
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:DLT-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/dlt.png">
+      </div>
+      DLT
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:DNT-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/dnt.png">
+      </div>
+      DNT
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:DOCK-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/dock.png">
+      </div>
+      DOCK
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:EDO-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/edo.png">
+      </div>
+      EDO
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:ELF-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/elf.png">
+      </div>
+      ELF
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:ENG-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/eng.png">
+      </div>
+      ENG
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:ENJ-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/enj.png">
+      </div>
+      ENJ
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:EOS-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/eos.png">
+      </div>
+      EOS
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:ETC-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/etc.png">
+      </div>
+      ETC
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:ETH-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/eth.png">
+      </div>
+      ETH
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:EVX-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/evx.png">
+      </div>
+      EVX
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:FET-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/fet.png">
+      </div>
+      FET
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:FUEL-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/fuel.png">
+      </div>
+      FUEL
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:GAS-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/gas.png">
+      </div>
+      GAS
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:GNT-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/gnt.png">
+      </div>
+      GNT
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:GO-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/go.png">
+      </div>
+      GO
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:GRS-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/grs.png">
+      </div>
+      GRS
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:GTO-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/gto.png">
+      </div>
+      GTO
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:GVT-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/gvt.png">
+      </div>
+      GVT
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:GXS-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/gxs.png">
+      </div>
+      GXS
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:HC-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/hc.png">
+      </div>
+      HC
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:ICX-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/icx.png">
+      </div>
+      ICX
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:INS-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/ins.png">
+      </div>
+      INS
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:IOST-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/iost.png">
+      </div>
+      IOST
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:IOTA-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/iota.png">
+      </div>
+      IOTA
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:IOTX-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/iotx.png">
+      </div>
+      IOTX
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:KMD-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/kmd.png">
+      </div>
+      KMD
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:KNC-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/knc.png">
+      </div>
+      KNC
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:LEND-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/lend.png">
+      </div>
+      LEND
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:LINK-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/link.png">
+      </div>
+      LINK
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:LOOM-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/loom.png">
+      </div>
+      LOOM
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:LRC-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/lrc.png">
+      </div>
+      LRC
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:LSK-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/lsk.png">
+      </div>
+      LSK
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:LTC-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/ltc.png">
+      </div>
+      LTC
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:LUN-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/lun.png">
+      </div>
+      LUN
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:MANA-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/mana.png">
+      </div>
+      MANA
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:MATIC-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/matic.png">
+      </div>
+      MATIC
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:MCO-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/mco.png">
+      </div>
+      MCO
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:MDA-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/mda.png">
+      </div>
+      MDA
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:MITH-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/mith.png">
+      </div>
+      MITH
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:MTH-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/mth.png">
+      </div>
+      MTH
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:MTL-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/mtl.png">
+      </div>
+      MTL
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:NANO-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/nano.png">
+      </div>
+      NANO
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:NAS-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/nas.png">
+      </div>
+      NAS
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:NAV-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/nav.png">
+      </div>
+      NAV
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:NEBL-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/nebl.png">
+      </div>
+      NEBL
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:NEO-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/neo.png">
+      </div>
+      NEO
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:NULS-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/nuls.png">
+      </div>
+      NULS
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:NXS-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/nxs.png">
+      </div>
+      NXS
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:OAX-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/oax.png">
+      </div>
+      OAX
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:OMG-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/omg.png">
+      </div>
+      OMG
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:ONG-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/ong.png">
+      </div>
+      ONG
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:ONT-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/ont.png">
+      </div>
+      ONT
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:OST-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/ost.png">
+      </div>
+      OST
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:PHX-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/phx.png">
+      </div>
+      PHX
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:PIVX-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/pivx.png">
+      </div>
+      PIVX
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:POA-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/poa.png">
+      </div>
+      POA
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:POLY-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/poly.png">
+      </div>
+      POLY
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:POWR-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/powr.png">
+      </div>
+      POWR
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:PPT-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/ppt.png">
+      </div>
+      PPT
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:QKC-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/qkc.png">
+      </div>
+      QKC
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:QLC-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/qlc.png">
+      </div>
+      QLC
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:QSP-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/qsp.png">
+      </div>
+      QSP
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:QTUM-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/qtum.png">
+      </div>
+      QTUM
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:RCN-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/rcn.png">
+      </div>
+      RCN
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:RDN-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/rdn.png">
+      </div>
+      RDN
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:REN-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/ren.png">
+      </div>
+      REN
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:REP-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/rep.png">
+      </div>
+      REP
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:REQ-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/req.png">
+      </div>
+      REQ
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:RLC-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/rlc.png">
+      </div>
+      RLC
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:RVN-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/rvn.png">
+      </div>
+      RVN
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:SKY-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/sky.png">
+      </div>
+      SKY
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:SNGLS-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/sngls.png">
+      </div>
+      SNGLS
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:SNM-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/snm.png">
+      </div>
+      SNM
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:SNT-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/snt.png">
+      </div>
+      SNT
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:STEEM-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/steem.png">
+      </div>
+      STEEM
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:STORJ-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/storj.png">
+      </div>
+      STORJ
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:STRAT-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/strat.png">
+      </div>
+      STRAT
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:SYS-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/sys.png">
+      </div>
+      SYS
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:THETA-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/theta.png">
+      </div>
+      THETA
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:TNT-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/tnt.png">
+      </div>
+      TNT
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:TRX-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/trx.png">
+      </div>
+      TRX
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:VET-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/vet.png">
+      </div>
+      VET
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:VIA-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/via.png">
+      </div>
+      VIA
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:VIB-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/vib.png">
+      </div>
+      VIB
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:VIBE-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/vibe.png">
+      </div>
+      VIBE
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:WABI-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/wabi.png">
+      </div>
+      WABI
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:WAN-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/wan.png">
+      </div>
+      WAN
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:WAVES-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/waves.png">
+      </div>
+      WAVES
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:WPR-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/wpr.png">
+      </div>
+      WPR
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:WTC-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/wtc.png">
+      </div>
+      WTC
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:XEM-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/xem.png">
+      </div>
+      XEM
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:XLM-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/xlm.png">
+      </div>
+      XLM
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:XMR-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/xmr.png">
+      </div>
+      XMR
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:XRP-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/xrp.png">
+      </div>
+      XRP
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:XVG-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/xvg.png">
+      </div>
+      XVG
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:XZC-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/xzc.png">
+      </div>
+      XZC
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:YOYO-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/yoyo.png">
+      </div>
+      YOYO
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:ZEC-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/zec.png">
+      </div>
+      ZEC
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:ZEN-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/zen.png">
+      </div>
+      ZEN
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:ZIL-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/zil.png">
+      </div>
+      ZIL
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+  <a href="https://qft.hodloo.com/#/binance:ZRX-eth" target="_blank">
+    <div class="grid-item" >
+      <div>  
+          <img src="icons/zrx.png">
+      </div>
+      ZRX
+      <div class="indicators-wrapper">
+          <div class="indicatorneutral"></div>
+       </div>
+    </div>
+  </a>
+
+
+
+
+
+  </div>
+
+
+<div id="apiresult">result </div>
+
+
+<!-- JAVASCRIPTS -->
+<script type="text/javascript">
+  function startup(){
+    makeApiCall();
+  }
+  </script>
+
+<script type="text/javascript">
+const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+  
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+    }
+}
+
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+    else {        document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+    }    
+}
+
+toggleSwitch.addEventListener('change', switchTheme, false);
+  
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Get Sheets data -->
+
+<script>
+    function makeApiCall() {
+        gapi.client.sheets.spreadsheets.values.get({
+          spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
+          range: 'A4'
+        }).then((response) => {
+
+      
+        var result = response.result.values;
+        
+
+       
+        console.log(result);
+
+
+
+
+        document.getElementById("apiresult").innerHTML = result;
+      });
+    }
+
+    function initClient() {
+      var API_KEY = 'AIzaSyDYM8lAPcM_14uH1nQwnIyQvqeGDBt-3fg';  // TODO: Update placeholder with desired API key.
+
+      var CLIENT_ID = '343795338695-ikt07q9oi2dtu60u4991mhi5dm932jq8.apps.googleusercontent.com';  // TODO: Update placeholder with desired client ID.
+
+      // TODO: Authorize using one of the following scopes:
+      //   'https://www.googleapis.com/auth/drive'
+      //   'https://www.googleapis.com/auth/drive.file'
+      //   'https://www.googleapis.com/auth/drive.readonly'
+      //   'https://www.googleapis.com/auth/spreadsheets'
+      //   'https://www.googleapis.com/auth/spreadsheets.readonly'
+      var SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly';
+
+      gapi.client.init({
+        'apiKey': API_KEY,
+        'clientId': CLIENT_ID,
+        'scope': SCOPE,
+        'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
+      }).then(function() {
+        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
+        updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+      });
+    }
+
+    function handleClientLoad() {
+      gapi.load('client:auth2', initClient);
+    }
+
+    function updateSignInStatus(isSignedIn) {
+      if (isSignedIn) {
+        makeApiCall();
+      }
+    }
+
+    function handleSignInClick(event) {
+      gapi.auth2.getAuthInstance().signIn();
+    }
+
+    function handleSignOutClick(event) {
+      gapi.auth2.getAuthInstance().signOut();
+    }
+</script>
+<script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
+
+    
+
+</body>
+
+</html>
+
+
+
+
+
+   
+
+
