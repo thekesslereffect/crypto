@@ -57,6 +57,26 @@
   filter: var(--filter-color);
   }
 
+  button{
+    height:32px;
+    width:32px;
+    background-color:transparent;
+    border: none; /* Remove borders */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin:0;
+    padding:0;
+
+    -webkit-transition: -webkit-transform .3s ease-out;
+          transition:         transform .3s ease-out;
+
+   
+
+  }
+  button:hover{
+    -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+  }
+
  
   
 
@@ -256,7 +276,8 @@ input:checked + .slider:before {
 
 
 
-<button onclick="makeApiCall()">apicall</button>
+   <h5> <button onclick="makeApiCall()"><img src="icons/refresh.png"></button></h5>
+
 <!--
 <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
 <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
@@ -264,12 +285,12 @@ input:checked + .slider:before {
 <br>
 
 
-<div id="apiresult">result </div>
 
 
 
 
-<br>
+
+
 
 <div class="grid-container">
   <a href="https://docs.google.com/spreadsheets/d/1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4" target="_blank">
@@ -1914,7 +1935,7 @@ input:checked + .slider:before {
   </div>
 
 
-
+<div id="apiresult">result </div>
 
 
 <!-- JAVASCRIPTS -->
