@@ -45,7 +45,7 @@
           range: 'Binance BTC!A3:A200'
         }).then((response) => {
         var result = response.result.values; //get the values from the sheet
-        var newresult = result.map(el => el.slice(-3)); // remove BTC from the end of the array values
+        var newresult = result.map(el => el.slice(2)); // remove BTC from the end of the array values
 
 
         console.log(newresult);
