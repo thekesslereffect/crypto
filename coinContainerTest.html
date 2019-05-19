@@ -37,9 +37,18 @@
 </body>
 <script>
 
-	var result = {};
+	
 
 	function makeCoinItem() {
+		gapi.client.sheets.spreadsheets.values.get({
+          spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
+          range: 'Binance BTC!A3:A200'
+        }).then((response) => {
+        var result = response.result.values;
+        console.log(result);
+        document.getElementById("apiresult").innerHTML = result;
+
+
 		var index;
 		var coin = result; //Get all arrays from sheets
 		for (index = 0; index < coin.length; ++index) {
@@ -62,7 +71,7 @@
 		// Change color based on 24
 		// Change color based on Dst
 
-	    console.log(a[index]);
+	    console.log(coin[index]);
 
 		}
 	}
@@ -74,7 +83,7 @@
           spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
           range: 'Binance BTC!A3:A200'
         }).then((response) => {
-        result = response.result.values;
+        var result = response.result.values;
         console.log(result);
         document.getElementById("apiresult").innerHTML = result;
         
