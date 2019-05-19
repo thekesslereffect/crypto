@@ -74,7 +74,7 @@
           spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
           range: 'Binance BTC!A3:A200'
         }).then((response) => {
-        result = response.result;
+        result = response.result.values;
         console.log(result);
         document.getElementById("apiresult").innerHTML = result;
         
