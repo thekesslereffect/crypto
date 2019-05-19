@@ -1,7 +1,9 @@
 var index;
 var a = ["a", "b", "c", "etc."]; //Get all arrays from sheets
 for (index = 0; index < a.length; ++index) {
-	
+	var gridItem = document.createElement("GRID-ITEM")
+	gridItem.innerHTML = a[index];
+	document.body.appendChild(gridItem);
 	// Create Grid item
 	// Create icon, "name from array" + .png
 	// Create name, "name from array"
