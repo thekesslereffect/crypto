@@ -57,7 +57,11 @@
 
 		document.getElementById("coinContainer").appendChild(coinItem); // create coinItem box
 
-		coinItem.innerHTML = coin[index].substring(0,coin.length-3); // populate coinItem box with the specific array values
+		var coinString = coin[index];
+
+		coinString = coinString.substring(0,coinString.length-3);
+
+		coinItem.innerHTML = coinString; // populate coinItem box with the specific array values
 	
 		// Create Grid item
 		// Create icon, "name from array" + .png
