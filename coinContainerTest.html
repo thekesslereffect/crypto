@@ -44,13 +44,16 @@
           spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
           range: 'Binance BTC!A3:A200'
         }).then((response) => {
-        var result = response.result.values;
-        console.log(result);
-        document.getElementById("apiresult").innerHTML = result;
+        var result = response.result.values; //get the values from the sheet
+        var newresult = [x[:-3] for x in result] // remove BTC from the end of the array values
+
+
+        console.log(newresult);
+        
 
 
 		var index;
-		var coin = result; //Get all arrays from sheets
+		var coin = newresult; //Get all arrays from sheets
 		for (index = 0; index < coin.length; ++index) {
 
 		var coinItem= document.createElement("div");
