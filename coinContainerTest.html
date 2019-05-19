@@ -45,16 +45,17 @@
           range: 'Binance BTC!A3:A200'
         }).then((response) => {
         var result = response.result.values; //get the values from the sheet
-        var newresult = result.map(el => el.slice(2)); // remove BTC from the end of the array values
+        
 
 
-        console.log(newresult);
+        console.log(result);
         
 
 
 		var index;
-		var coin = newresult; //Get all arrays from sheets
+		var coin = result; //Get all arrays from sheets
 		for (index = 0; index < coin.length; ++index) {
+		var coin = coin.substr(0, coin.length-3); // trim btc from end?
 
 		var coinItem= document.createElement("div");
 		
