@@ -33,13 +33,13 @@
 	</div>
 	<div id="apiresult">
 	</div>
-	
+
 </body>
 <script>
-	function makeCoinItem() {
+	function makeCoinItem(result) {
 		var index;
-		var coin = ["a", "b", "c", "etc."]; //Get all arrays from sheets
-		for (index = 0; index < a.length; ++index) {
+		var coin = result; //Get all arrays from sheets
+		for (index = 0; index < coin.length; ++index) {
 
 		var coinItem= document.createElement("div");
 		
@@ -68,11 +68,12 @@
     function makeApiCall() {
         gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
-          range: 'Binance BTC!F3:F200'
+          range: 'Binance BTC!A3:A200'
         }).then((response) => {
         var result = response.result;
         console.log(result);
         document.getElementById("apiresult").innerHTML = result;
+        makeCoinItem(result);
       });
     }
 
