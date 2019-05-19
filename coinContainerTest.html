@@ -45,17 +45,11 @@
           range: 'Binance BTC!A3:A200'
         }).then((response) => {
         var result = response.result.values; //get the values from the sheet
-        
-
-
         console.log(result);
-        
-
-
+       
 		var index;
 		var coin = result; //Get all arrays from sheets
 		for (index = 0; index < coin.length; ++index) {
-		var coin = coin.substr(0, coin.length-3); // trim btc from end?
 
 		var coinItem= document.createElement("div");
 		
@@ -63,7 +57,7 @@
 
 		document.getElementById("coinContainer").appendChild(coinItem); // create coinItem box
 
-		coinItem.innerHTML = coin[index]; // populate coinItem box with the specific array values
+		coinItem.innerHTML = coin[index].substr(0,coin.length-3); // populate coinItem box with the specific array values
 	
 		// Create Grid item
 		// Create icon, "name from array" + .png
