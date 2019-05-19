@@ -33,7 +33,7 @@
 <script>
 	function makeCoinItem() {
 		var index;
-		var a = ["a", "b", "c", "etc."]; //Get all arrays from sheets
+		var coin = ["a", "b", "c", "etc."]; //Get all arrays from sheets
 		for (index = 0; index < a.length; ++index) {
 
 		var coinItem= document.createElement("div");
@@ -41,12 +41,9 @@
 		coinItem.className="coinItem";
 
 		document.getElementById("coinContainer").appendChild(coinItem); // create coinItem box
-		
-		coinItem.innerHTML = a[index]; // populate coinItem box with the specific array values
 
-
-
-		
+		coinItem.innerHTML = coin[index]; // populate coinItem box with the specific array values
+	
 		// Create Grid item
 		// Create icon, "name from array" + .png
 		// Create name, "name from array"
