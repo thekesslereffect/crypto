@@ -57,12 +57,12 @@
 
 		document.getElementById("coinContainer").appendChild(coinItem); // create coinItem box
 
-		str = coin[index]; //return object value at specific index
+		coin = coin[index]; //return object value at specific index
 
-		str = str.toString();
-		str = str.substring(0,str.length-1); //convert to string and remove btc at end
+		coin = coin.toString();
+		coin = coin.substring(0,coin.length-3); //convert to string and remove btc at end
 
-		coinItem.innerHTML = str; // populate coinItem box with the specific array values
+		coinItem.innerHTML = coin; // populate coinItem box with the specific array values
 	
 		// Create Grid item
 		// Create icon, "name from array" + .png
@@ -74,7 +74,7 @@
 		// Change color based on 24
 		// Change color based on Dst
 
-	    console.log(str);
+	    console.log(coin);
 
 		}
 	});
