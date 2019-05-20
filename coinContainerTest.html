@@ -305,19 +305,26 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 		coinItem.className="coinItem";
 		document.getElementById("coinContainer").appendChild(coinItem); // create coinItem box
 
-    var indicatorsWrapper= document.createElement("div");
-    indicatorsWrapper.className="indicators-wrapper";
-    document.getElementById("coinItem").appendChild(indicatorsWrapper); // create coinItem box
+    
 
     // Get values
 		var coinName = coin[index]; //return object value at specific index and put into new variable (needs new variable or only one coin will show for some reason)
 		coinName = coinName.toString(); // convert object to string
 		coinName = coinName.substring(0,coinName.length-3); //remove btc at end
 
-    var near24hr = near24[index]; // return near 24hr low value
+    
 
 		coinItem.innerHTML = coinName; // populate coinItem box with the specific coin name
-	  indicatorsWrapper.innerHTML = near24hr;
+
+
+
+    var near24hr = near24[index]; // return near 24hr low value
+
+    var indicatorsWrapper= document.createElement("div");
+    indicatorsWrapper.className="indicators-wrapper";
+    document.getElementById("coinItem").appendChild(indicatorsWrapper); // create coinItem box
+
+	  indicatorsWrapper.innerHTML = near24hr; // populate
 		// Create Grid item
 		// Create icon, "name from array" + .png
 		// Create name, "name from array"
