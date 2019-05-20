@@ -287,13 +287,13 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 		gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
           range: 'Binance BTC!A3:A200'
-        }).then((response) => {
-        var result = response.result.values; //get the values from the sheet
-        console.log(result);
+        }).then((coinresponse) => {
+        var coin = coinresponse.result.values; //get the values from the sheet
+        
        
 		var index;
-		var coin = result; //Get all arrays from sheets
-		for (index = 0; index < coin.length; ++index) {
+		 
+		for (index = 0; index < coin.length; ++index) { 
 
 		var coinItem= document.createElement("div");
 		
@@ -317,26 +317,25 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 		// Change color based on 24
 		// Change color based on Dst
 
-	    console.log(str);
+	  
 
 		}
 	});
 }
 
 	
-
+/*
     function makeApiCall() {
         gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
           range: 'Binance BTC!A3:A200'
         }).then((response) => {
         var result = response.result.values;
-        console.log(result);
-        
+      
         
       });
     }
-  
+*/  
 
     function initClient() {
       var API_KEY = 'AIzaSyDYM8lAPcM_14uH1nQwnIyQvqeGDBt-3fg';  
@@ -360,7 +359,7 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 
     function updateSignInStatus(isSignedIn) {
       if (isSignedIn) {
-        makeApiCall();
+        //makeApiCall();
       }
     }
 
