@@ -60,7 +60,7 @@
 		var coin = coin[index]; //return object value at specific index
 
 		var coin = coin.toString();
-		var coinString = coin.substring(0,str.length-1); //convert to string and remove btc at end
+		var coinString = coin.substr(0,coin.length-1); //convert to string and remove btc at end
 
 		coinItem.innerHTML = coinString; // populate coinItem box with the specific array values
 	
