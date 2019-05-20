@@ -62,6 +62,8 @@
 		
 		coinItem.className="coinItem";
 
+		document.getElementById("coinContainer").removeChild(coinItem); // removes coinItem boxes if exists
+
 		document.getElementById("coinContainer").appendChild(coinItem); // create coinItem box
 
 		var str = coin[index]; //return object value at specific index and put into new variable (needs new variable or only one coin will show for some reason)
