@@ -303,6 +303,7 @@ toggleSwitch.addEventListener('change', switchTheme, false);
     // Create divs
 		var coinItem= document.createElement("div");
 		coinItem.className="coinItem";
+    
 		document.getElementById("coinContainer").appendChild(coinItem); // create coinItem box
 
     
@@ -322,9 +323,13 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 
     var indicatorsWrapper= document.createElement("div");
     indicatorsWrapper.className="indicators-wrapper";
-    document.getElementById("coinItem").appendChild(indicatorsWrapper); // create coinItem box
+    document.getElementByClassName("coinItem").appendChild(indicatorsWrapper); //create indicators wrapper
 
-	  indicatorsWrapper.innerHTML = near24hr; // populate
+    var indicator24hr= document.createElement("div");
+    indicator24hr.className="indicator24hr";
+    document.getElementByClassName("indicators-wrapper").appendChild(indicator24hr);
+
+	  indicator24hr.innerHTML = near24hr; // populate
 		// Create Grid item
 		// Create icon, "name from array" + .png
 		// Create name, "name from array"
