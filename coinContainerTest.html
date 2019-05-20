@@ -3,7 +3,83 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
 <style>
-	 .coinContainer {
+	   :root {
+    --primary-color: #eee;
+    --secondary-color: slategrey;
+    --font-color: #393e46;
+    --bg-color: #fff;
+    --heading-color: #292922;
+    --slider-color: #ddd;
+    --filter-color:invert(.15);
+   
+  }
+
+  [data-theme="dark"] {
+    --primary-color: #393e46;
+    --secondary-color: slategrey;
+    --font-color: #eeeeee;
+    --bg-color: #232931;
+    --heading-color: #818cab;
+    --slider-color:slategrey;
+    --filter-color:invert(.9);
+   
+  }
+
+  body {
+    background-color: var(--bg-color);
+ 
+   
+  }
+  h1,h2,h3,h4,h5 {
+
+    font-family: helvetica;
+    color: var(--font-color);
+    text-align: center;
+  }
+  p{
+    border: 2px #eeeeee;
+    padding: 5px;
+  }
+
+  a:link, a:visited
+  {
+    
+    color: var(--font-color);   
+    text-decoration: none;
+   
+  }
+
+  img{
+  height:32px;
+  width:32px;
+  margin-bottom:5px;
+  filter: var(--filter-color);
+  }
+
+  button{
+    height:32px;
+    width:32px;
+    background-color:transparent;
+    border: none; /* Remove borders */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin:0;
+    padding:0;
+
+    -webkit-transition: -webkit-transform .3s ease-out;
+          transition:         transform .3s ease-out;
+
+   
+
+  }
+  button:hover{
+    -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+  }
+
+ 
+  
+
+  .coinContainer {
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(100px, 1fr) );
     grid-gap:10px;
@@ -32,7 +108,137 @@
   
 
   }
+
+  nav {
+    font-family: helvetica;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 20px;
+    color:var(--font-color);
+  }
+
+/*slider switch css */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  
+  
+}
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+
+
+.slider {
+  background-color: var(--slider-color);
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: var(--slider-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.indicators-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top:5px;
+}
+.indicator24hr{
+  width:20px;
+  height:10px;
+  font-size:9px;
+  color:var(--font-color);
+  font-family:helvetica;
+  background-color: lightsteelblue;
+  margin-left:2px;
+  margin-right:0px;
+  /*border-radius:25px;*/
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  
+}
+.indicatorspread{
+  width:20px;
+  height:10px;
+  font-size:9px;
+  color:var(--font-color);
+  font-family:helvetica;
+  background-color: lightsteelblue;
+  margin-left:0px;
+  margin-right:2px;
+  /*border-radius:25px;*/
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.favorite-wrapper{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom:5px;
+  cursor: pointer;
+}
+.favorite{
+  width:10px;
+  height:10px;
+  background-color: lightsteelblue;
+  margin-left:2px;
+  margin-right:2px;
+  border-radius:25px;
+  cursor: pointer;
+}
 </style>
+
+<nav>
+  <div class="theme-switch-wrapper">
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+      </label>
+    
+  </div>
+
+</nav>
+
 </head>
 <body>
 	<!--<button onclick="makeApiCall()">Make API Call</button>-->
@@ -45,6 +251,32 @@
 	
 
 </body>
+
+<script type="text/javascript">
+const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+  
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+    }
+}
+
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+    else {        document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+    }    
+}
+
+toggleSwitch.addEventListener('change', switchTheme, false);
+</script>
+
 <script>
 	function makeCoinItem() {
 		gapi.client.sheets.spreadsheets.values.get({
