@@ -292,13 +292,13 @@ toggleSwitch.addEventListener('change', switchTheme, false);
           spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
           range: 'Binance BTC!A3:A200'
         }).then((coinresponse) => {
-        var coin = coinresponse.result.values}); //get the coin values from the sheet
+        var coin = coinresponse.result.values; //get the coin values from the sheet
 
     gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
           range: 'Binance BTC!F3:F200'
         }).then((near24response) => {
-        var near24 = near24response.result.values}); //get the near 24 hour low values from the sheet
+        var near24 = near24response.result.values; //get the near 24 hour low values from the sheet
       
 		for (index = 0; index < coin.length; ++index) { 
     // Create divs
@@ -341,8 +341,8 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 	  
 
 		}
-    
-  
+    });
+  });
 }
 
 
