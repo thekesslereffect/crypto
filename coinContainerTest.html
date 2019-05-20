@@ -294,8 +294,12 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 		
 		coinItem.className="coinItem";
 
+		var myNode = document.getElementById("coinContainer"); // remove existing coin items
+		while (myNode.firstChild){
+			myNode.removeChild(myNode.firstChild);
+		}
 
-		document.getElementById("coinContainer").appendChild(coinItem); // create coinItem box
+		myNode.appendChild(coinItem); // create coinItem box
 
 		var str = coin[index]; //return object value at specific index and put into new variable (needs new variable or only one coin will show for some reason)
 		str = str.toString(); // convert object to string
