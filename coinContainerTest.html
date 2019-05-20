@@ -29,16 +29,13 @@
 	<button onclick="makeCoinItem()">Make Coin Container</button>
 
 	<div id="coinContainer" class="coinContainer">
-
+		
 	</div>
-	<div id="apiresult">
-	</div>
-
-</body>
-<script>
 
 	
 
+</body>
+<script>
 	function makeCoinItem() {
 		gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
@@ -57,9 +54,9 @@
 
 		document.getElementById("coinContainer").appendChild(coinItem); // create coinItem box
 
-		var str = coin[index]; //return object value at specific index
-		str = str.toString();
-		str = str.substring(0,str.length-3); //convert to string and remove btc at end
+		var str = coin[index]; //return object value at specific index and put into new variable (needs new variable or only one coin will show for some reason)
+		str = str.toString(); // convert object to string
+		str = str.substring(0,str.length-3); //remove btc at end
 
 		coinItem.innerHTML = str; // populate coinItem box with the specific array values
 	
