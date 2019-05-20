@@ -288,7 +288,13 @@ toggleSwitch.addEventListener('change', switchTheme, false);
           spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
           range: 'Binance BTC!A3:A200'
         }).then((coinresponse) => {
-        var coin = coinresponse.result.values; //get the values from the sheet
+        var coin = coinresponse.result.values; //get the coin values from the sheet
+
+    gapi.client.sheets.spreadsheets.values.get({
+          spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
+          range: 'Binance BTC!F3:F200'
+        }).then((near24response) => {
+        var near24 = near24response.result.values; //get the near 24 hour low values from the sheet
         
        
 		var index;
@@ -305,8 +311,10 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 		str = str.toString(); // convert object to string
 		str = str.substring(0,str.length-3); //remove btc at end
 
+    var near24hr = near24[index];
+
 		coinItem.innerHTML = str; // populate coinItem box with the specific array values
-	
+	  coinItem.innerHTML = near24hr;
 		// Create Grid item
 		// Create icon, "name from array" + .png
 		// Create name, "name from array"
