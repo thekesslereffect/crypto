@@ -57,10 +57,10 @@
 
 		document.getElementById("coinContainer").appendChild(coinItem); // create coinItem box
 
-		var coinString = coin[index]; //return object value at specific index
+		var coin = coin[index]; //return object value at specific index
 
-		coinString = coinString.toString();
-		new coinString.substr(0,coinString.length-3); //convert to string and remove btc at end
+		coin = coin.toString();
+		coinString = coin.substring(0,coinString.length-1); //convert to string and remove btc at end
 
 		coinItem.innerHTML = coinString; // populate coinItem box with the specific array values
 	
