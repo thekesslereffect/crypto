@@ -284,21 +284,22 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 			myNode.removeChild(myNode.firstChild);
 		}
 
+    var coin = {};
+    var near24 = {};
+    var index;
+
 		gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
           range: 'Binance BTC!A3:A200'
         }).then((coinresponse) => {
-        var coin = coinresponse.result.values; //get the coin values from the sheet
+        var coin = coinresponse.result.values}); //get the coin values from the sheet
 
     gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
           range: 'Binance BTC!F3:F200'
         }).then((near24response) => {
-        var near24 = near24response.result.values; //get the near 24 hour low values from the sheet
-        
-       
-		var index;
-		 
+        var near24 = near24response.result.values}); //get the near 24 hour low values from the sheet
+      
 		for (index = 0; index < coin.length; ++index) { 
     // Create divs
 		var coinItem= document.createElement("div");
@@ -320,6 +321,8 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 
     var near24hr = near24[index]; // return near 24hr low value
 
+
+
     var indicatorsWrapper= document.createElement("div");
     indicatorsWrapper.className="indicators-wrapper";
     document.getElementById("coinItem").appendChild(indicatorsWrapper); // create coinItem box
@@ -338,8 +341,8 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 	  
 
 		}
-    });
-  });
+    
+  
 }
 
 
