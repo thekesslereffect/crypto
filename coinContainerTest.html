@@ -279,6 +279,11 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 
 <script>
 	function makeCoinItem() {
+		var myNode = document.getElementById("coinContainer"); // remove existing coin items
+		while (myNode.firstChild){
+			myNode.removeChild(myNode.firstChild);
+		}
+
 		gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
           range: 'Binance BTC!A3:A200'
@@ -294,12 +299,7 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 		
 		coinItem.className="coinItem";
 
-		var myNode = document.getElementById("coinContainer"); // remove existing coin items
-		while (myNode.firstChild){
-			myNode.removeChild(myNode.firstChild);
-		}
-
-		myNode.appendChild(coinItem); // create coinItem box
+		document.getElementById("coinContainer").appendChild(coinItem); // create coinItem box
 
 		var str = coin[index]; //return object value at specific index and put into new variable (needs new variable or only one coin will show for some reason)
 		str = str.toString(); // convert object to string
