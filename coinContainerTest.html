@@ -295,6 +295,12 @@ toggleSwitch.addEventListener('change', switchTheme, false);
           range: 'Binance BTC!F3:F200'
         }).then((near24response) => {
         var near24 = near24response.result.values; //get the near 24 hour low values from the sheet
+
+    gapi.client.sheets.spreadsheets.values.get({
+          spreadsheetId: '1APh4g0zln62ZUEdjCNuowXRR7Y9asnB1BaPtuNnSYF4',
+          range: 'Binance BTC!G3:G200'
+        }).then((spreadresponse) => {
+        var spreadValue = spreadresponse.result.values;
         
        
 		var index;
@@ -315,6 +321,7 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 
 
     var near24hr = near24[index]; // return near 24hr low value
+    var indicatorSpreadValue = spreadValue[index]; // return spread values
 
     var indicatorsWrapper= document.createElement("div");
     indicatorsWrapper.className="indicators-wrapper";
@@ -323,12 +330,17 @@ toggleSwitch.addEventListener('change', switchTheme, false);
     var indicator24hr= document.createElement("div");
     indicator24hr.className="indicator24hr";
     document.getElementsByClassName("indicators-wrapper")[index].appendChild(indicator24hr); //create indicator 24hr near low
+    indicator24hr.innerHTML = near24hr; // populate
 
-	  indicator24hr.innerHTML = near24hr; // populate
-		// Create Grid item
+    var indicatorSpread= document.createElement("div");
+    indicatorSpread.className="indicatorSpread";
+    document.getElementsByClassName("indicatorspread")[index].appendChild(indicatorSpread);
+    indicatorSpread.innerHTML = indicatorSpreadValue; // populate
+	  
+	
 		// Create icon, "name from array" + .png
 		// Create name, "name from array"
-		// Create 24 shape, id="name from array"
+	
 		// Create Dst shape, id="name from array"
 		// Get value of 24 from sheets
 		// Get value of Dst from sheets
