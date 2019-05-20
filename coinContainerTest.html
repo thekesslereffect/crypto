@@ -3,13 +3,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
 <style>
-	.coinContainer {
+	 .coinContainer {
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(100px, 1fr) );
     grid-gap:10px;
     padding: 0px;
     align-content: space-evenly;
-    text-align:center;   
+    text-align:center;
+
+   
+    
+    
   }
   .coinItem {
     font-family: helvetica;
@@ -21,6 +25,12 @@
     font-size: 16px;
     text-align: center;
     cursor: pointer;
+  }
+
+  .coinItem:hover{
+    background-color: var(--secondary-color);
+  
+
   }
 </style>
 </head>
